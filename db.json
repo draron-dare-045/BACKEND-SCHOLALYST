@@ -1,4 +1,5 @@
-[
+{ 
+  "universities": [
     {
       "name": "Engineering Institute of Technology",
       "domains": ["student.eit.edu.au"],
@@ -81422,4 +81423,4 @@
       "domains": ["student.kuleuven.be"],
       "country": "Belgium"
     }
-  ]
+  ] }
