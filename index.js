@@ -1,17 +1,13 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
-const PORT = 5000; 
+const jsonServer = require('json-server');
+const server = jsonServer.create();  
+const router = jsonServer.router('db.json');  
+const middlewares = jsonServer.defaults();  
 
-app.use(cors());
-app.use(express.json());
+server.use(middlewares);  
 
-const universitiesData = require('./db.json');
+server.use('/api', router);  
 
-app.get('/universities', (req, res) => {
-  res.json(universitiesData.universities); 
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+const PORT = process.env.PORT || 10000;  
+server.listen(PORT, () => {
+  console.log(`JSON Server is running on port ${PORT}`);
 });
